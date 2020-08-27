@@ -1,19 +1,19 @@
 public class Task {
     public String taskName;
-    public boolean taskDone;
+    public boolean isDone;
     //constructors
     public Task() {
         taskName = "";
-        taskDone = false;
+        isDone = false;
     }
     public Task(String taskInput){
         taskName = taskInput;
-        taskDone = false;
+        isDone = false;
     }
     public void markAsDone() {
-        taskDone = true;
+        isDone = true;
     }
     public String getStatusIcon() {
-        return (taskDone ? "\u2713" : "\u2718"); //return tick or X symbols
+        return (isDone ? "\u2713" : "\u2718"); //return tick or cross symbols
     }
 }

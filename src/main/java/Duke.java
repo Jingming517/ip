@@ -22,7 +22,7 @@ public class Duke {
         while (true) {
             command = in.nextLine(); //returns a string
             if (command.equals("bye")) {
-                goodbye();
+                goodBye();
                 break;
             }
             else {
@@ -37,7 +37,7 @@ public class Duke {
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
     }
-    public static void goodbye()
+    public static void goodBye()
     {
         printSeparationLine();
         System.out.println("\t Bye.Hope to see you again soon!");
@@ -52,7 +52,8 @@ public class Duke {
     static void addList(String command) {
         taskList.add(new Task(command));
         printSeparationLine();
-        System.out.println("\t added: " + command);
+        System.out.println("\t added: "
+                + command);
         printSeparationLine();
     }
     static void listAllTasks() {
@@ -60,7 +61,12 @@ public class Duke {
         int number = 1;
         for(int i=0; i<taskList.size(); i++){
 
-            System.out.println("\t " + number + ".[" + taskList.get(i).getStatusIcon() + "]" + taskList.get(i).taskName);
+            System.out.println("\t "
+                    + number
+                    + ".["
+                    + taskList.get(i).getStatusIcon()
+                    + "]"
+                    + taskList.get(i).taskName);
             number++;
         }
         printSeparationLine();
@@ -74,11 +80,14 @@ public class Duke {
                 taskList.get(index - 1).markAsDone();
                 printSeparationLine();
                 System.out.println("\tNice! I've marked this task as done:");
-                System.out.println("\t   [" + taskList.get(index-1).getStatusIcon() +"] "+taskList.get(index-1).taskName+"\n");
+                System.out.println("\t   ["
+                        + taskList.get(index-1).getStatusIcon()
+                        +"] "
+                        +taskList.get(index-1).taskName
+                        + "\n");
                 printSeparationLine();
             }
-        }
-        else {
+        } else {
             switch (command) {
             case "list":
                 listAllTasks();
