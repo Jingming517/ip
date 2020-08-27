@@ -1,0 +1,3 @@
+javac Duke.java
+java Duke
+list

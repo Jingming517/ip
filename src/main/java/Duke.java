@@ -91,7 +91,7 @@ public class Duke {
     }
     public static void printAllTasks() {
         printSeparationLine();
-        System.out.println("Here are the tasks in your list:");
+        System.out.println("\tHere are the tasks in your list:");
         int number = 1;
         for(int i=0; i < taskList.size(); i++) {
             System.out.println("\t "
