@@ -21,8 +21,15 @@ public class Command {
             messages.Message.printAllTasks(taskList);
             break;
         case "todo":
-            tasks.TaskList.addList(taskList, taskDescription, "todo");
-            messages.Message.printAddTask(taskList);
+            if (taskDescription != "") {
+                tasks.TaskList.addList(taskList, taskDescription, "todo");
+                messages.Message.printAddTask(taskList);
+            }
+            else {
+                messages.Message.printSeparationLine();
+                System.out.println("\t ☹ OOPS!!! The description of a todo cannot be empty.");
+                messages.Message.printSeparationLine();
+            }
             break;
         case "event":
             tasks.TaskList.addList(taskList, taskDescription, "event");
