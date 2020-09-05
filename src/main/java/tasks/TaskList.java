@@ -1,5 +1,7 @@
 package tasks;
 
+import dukeexception.DukeException;
+import dukeexception.DukeExceptionDetector;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -13,34 +15,20 @@ public class TaskList {
         return taskList;
     }
 
-    public static void addList(ArrayList<Task> taskList, String taskDescription, String type) {
+    public static void addList(ArrayList<Task> taskList, String taskDescription, String type) throws DukeException {
         switch (type) {
         case "todo":
             taskList.add(new Todo(taskDescription, false));
             break;
 
         case "deadline":
-            String[] deadlineSplit = taskDescription.split("/by", 2);
-            String by;
-            if (deadlineSplit.length > 1) {
-                by = deadlineSplit[1];
-            } else {
-                by = "";
-            }
-            String byTrim = by.trim();
-            taskList.add(new Deadline(deadlineSplit[0], false, byTrim));
+            String commandDeadlineSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
+            taskList.add(new Deadline(commandDeadlineSplit[0], false, commandDeadlineSplit[1]));
             break;
 
         case "event":
-            String[] eventSplit = taskDescription.split("/at", 2);
-            String at;
-            if (eventSplit.length > 1) {
-                at = eventSplit[1];
-            } else {
-                at = "";
-            }
-            String atTrim = at.trim();
-            taskList.add(new Event(eventSplit[0], false, atTrim));
+            String commandEventSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
+            taskList.add(new Event(commandEventSplit[0], false, commandEventSplit[1]));
             break;
 
         default:

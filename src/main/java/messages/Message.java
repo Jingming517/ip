@@ -4,6 +4,17 @@ import tasks.Task;
 import java.util.ArrayList;
 
 public class Message {
+    /**
+     * Error messages
+     */
+    public static final String EMPTY_COMMAND_ERROR = "☹ OOPS!!! The command input cannot be empty!";
+    public static final String INVALID_COMMAND_ERROR = "☹ OOPS!!! Please input a valid command!";
+    public static final String EMPTY_TODO_ERROR = "☹ OOPS!!! The description of a todo cannot be empty.";
+    public static final String EMPTY_EVENT_ERROR = "☹ OOPS!!! The description of a event cannot be empty.";
+    public static final String EMPTY_DEADLINE_ERROR = "☹ OOPS!!! The description of a deadline cannot be empty.";
+    public static final String EMPTY_EVENT_TIME_ERROR = "☹ OOPS!!! Please input the time of event.";
+    public static final String EMPTY_DEADLINE_TIME_ERROR = "☹ OOPS!!! Please input the time of deadline.";
+
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
     }
