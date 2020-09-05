@@ -1,5 +1,5 @@
-package dukeexception;
-import messages.Message;
+package duke.dukeexception;
+import duke.messages.Message;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

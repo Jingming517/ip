@@ -1,6 +1,6 @@
-package messages;
+package duke.messages;
 
-import tasks.Task;
+import duke.tasks.Task;
 import java.util.ArrayList;
 
 public class Message {

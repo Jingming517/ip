@@ -1,8 +1,9 @@
-package commands;
+package duke.commands;
 
-import tasks.Task;
+import duke.tasks.*;
+import duke.messages.*;
 import java.util.ArrayList;
-import dukeexception.*;
+import duke.dukeexception.*;
 public class Command {
 
     public static void commendProcessor(ArrayList<Task> taskList, String command) {
@@ -19,36 +20,36 @@ public class Command {
 
             switch (commandType) {
             case "done":
-                tasks.TaskList.markTaskAsDone(taskList, split[1]);
+                duke.tasks.TaskList.markTaskAsDone(taskList, split[1]);
                 break;
             case "list":
-                messages.Message.printAllTasks(taskList);
+                duke.messages.Message.printAllTasks(taskList);
                 break;
             case "todo":
-                tasks.TaskList.addList(taskList, taskDescription, "todo");
-                messages.Message.printAddTask(taskList);
+                duke.tasks.TaskList.addList(taskList, taskDescription, "todo");
+                duke.messages.Message.printAddTask(taskList);
                 break;
             case "event":
-                tasks.TaskList.addList(taskList, taskDescription, "event");
-                messages.Message.printAddTask(taskList);
+                duke.tasks.TaskList.addList(taskList, taskDescription, "event");
+                duke.messages.Message.printAddTask(taskList);
                 break;
             case "deadline":
-                tasks.TaskList.addList(taskList, taskDescription, "deadline");
-                messages.Message.printAddTask(taskList);
+                duke.tasks.TaskList.addList(taskList, taskDescription, "deadline");
+                duke.messages.Message.printAddTask(taskList);
                 break;
             case "help":
-                messages.Message.printCommandInstructions();
+                duke.messages.Message.printCommandInstructions();
                 break;
             default:
-                messages.Message.printSeparationLine();
+                duke.messages.Message.printSeparationLine();
                 System.out.println("\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
-                messages.Message.printSeparationLine();
+                duke.messages.Message.printSeparationLine();
                 break;
             }
         } catch (DukeException e) {
-            messages.Message.printSeparationLine();
+            duke.messages.Message.printSeparationLine();
             System.out.println("\t " + e.getMessage());
-            messages.Message.printSeparationLine();
+            duke.messages.Message.printSeparationLine();
         }
     }
 }

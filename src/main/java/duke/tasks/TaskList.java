@@ -1,7 +1,7 @@
-package tasks;
+package duke.tasks;
 
-import dukeexception.DukeException;
-import dukeexception.DukeExceptionDetector;
+import duke.dukeexception.*;
+import duke.messages.*;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -36,7 +36,7 @@ public class TaskList {
         }
     }
     public static void markTaskAsDone(ArrayList<Task> taskList, String command) {
-        messages.Message.printSeparationLine();
+        duke.messages.Message.printSeparationLine();
         int index = Integer.parseInt(command);
         if (index >0 && index <= (taskList.size())) {
             taskList.get(index - 1).markAsDone();
@@ -45,6 +45,6 @@ public class TaskList {
         } else {
             System.out.println("\tTask number " + index + " is not in the list.");
         }
-        messages.Message.printSeparationLine();
+        duke.messages.Message.printSeparationLine();
     }
 }
