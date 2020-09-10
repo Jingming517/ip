@@ -18,12 +18,12 @@ public class Message {
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
     }
-    public static void printAddTask(ArrayList<Task> taskList) {
+    public static void printAddTask(Task taskAdded, int size) {
         printSeparationLine();
         System.out.println("\t Got it. I've added this task: ");
         System.out.println("\t   "
-                + taskList.get(taskList.size() - 1).toString());
-        int numberOfTasks = taskList.size();
+                + taskAdded.toString());
+        int numberOfTasks = size + 1;
         String taskPlural;
         if (numberOfTasks == 0 || numberOfTasks == 1) {
             taskPlural = "task";
@@ -37,19 +37,7 @@ public class Message {
                 + " in the list.");
         printSeparationLine();
     }
-    public static void printAllTasks(ArrayList<Task> taskList) {
-        printSeparationLine();
-        System.out.println("\tHere are the tasks in your list:");
-        int number = 1;
-        for(int i=0; i < taskList.size(); i++) {
-            System.out.println("\t "
-                    + number
-                    + "."
-                    + taskList.get(i).toString());
-            number++;
-        }
-        printSeparationLine();
-    }
+
     public static void printWelcome() {
         /*
         String logo = " ____        _        \n"

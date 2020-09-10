@@ -3,53 +3,72 @@ package duke.commands;
 import duke.tasks.*;
 import duke.messages.*;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import duke.dukeexception.*;
 public class Command {
+    private TaskList list;
+    public Command(TaskList list) {
+        this.list = list;
+    }
 
-    public static void commendProcessor(ArrayList<Task> taskList, String command) {
-        try {
-            String[] split = DukeExceptionDetector.extractCommandAction(command);
-            String commandType = split[0];
-            String taskDescription;
+    public void commandProcessor() {
+        duke.messages.Message.printWelcome();
+        Scanner in = new Scanner(System.in);
+        String command;
 
-            if (split.length > 1) {
-                taskDescription = split[1];
-            } else {
-                taskDescription = "";
-            }
-
-            switch (commandType) {
-            case "done":
-                duke.tasks.TaskList.markTaskAsDone(taskList, split[1]);
-                break;
-            case "list":
-                duke.messages.Message.printAllTasks(taskList);
-                break;
-            case "todo":
-                duke.tasks.TaskList.addList(taskList, taskDescription, "todo");
-                duke.messages.Message.printAddTask(taskList);
-                break;
-            case "event":
-                duke.tasks.TaskList.addList(taskList, taskDescription, "event");
-                duke.messages.Message.printAddTask(taskList);
-                break;
-            case "deadline":
-                duke.tasks.TaskList.addList(taskList, taskDescription, "deadline");
-                duke.messages.Message.printAddTask(taskList);
-                break;
-            case "help":
-                duke.messages.Message.printCommandInstructions();
-                break;
-            default:
-                duke.messages.Message.printSeparationLine();
-                System.out.println("\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
-                duke.messages.Message.printSeparationLine();
+        while (true) {
+            command = in.nextLine();
+            if (command.equals("bye")) {
+                duke.messages.Message.printGoodBye();
                 break;
             }
-        } catch (DukeException e) {
-            duke.messages.Message.printSeparationLine();
-            System.out.println("\t " + e.getMessage());
-            duke.messages.Message.printSeparationLine();
+            else {
+                try {
+                    String[] split = DukeExceptionDetector.extractCommandAction(command);
+                    String commandType = split[0];
+                    String taskDescription;
+
+                    if (split.length > 1) {
+                        taskDescription = split[1];
+                    } else {
+                        taskDescription = "";
+                    }
+
+                    switch (commandType) {
+                    case "done":
+                        list.markTaskAsDone(split[1]);
+                        break;
+                    case "delete":
+                        list.deleteTask(split[1]);
+                        break;
+                    case "list":
+                        list.printAllTasks();
+                        break;
+                    case "todo":
+                        list.addTask(taskDescription, "todo");
+                        break;
+                    case "event":
+                        list.addTask(taskDescription, "event");
+                        break;
+                    case "deadline":
+                        list.addTask(taskDescription, "deadline");
+                        break;
+                    case "help":
+                        duke.messages.Message.printCommandInstructions();
+                        break;
+                    default:
+                        duke.messages.Message.printSeparationLine();
+                        System.out.println("\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                        duke.messages.Message.printSeparationLine();
+                        break;
+                    }
+                } catch (DukeException e) {
+                    duke.messages.Message.printSeparationLine();
+                    System.out.println("\t " + e.getMessage());
+                    duke.messages.Message.printSeparationLine();
+                }
+            }
         }
     }
 }
