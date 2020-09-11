@@ -24,12 +24,12 @@ public class TaskList {
         case "deadline":
             String commandDeadlineSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
             taskList.add(new Deadline(commandDeadlineSplit[0], false, commandDeadlineSplit[1]));
-            duke.messages.Message.printAddTask(taskList.get(size - 1), size);
+            duke.messages.Message.printAddTask(taskList.get(size), size);
             break;
         case "event":
             String commandEventSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
             taskList.add(new Event(commandEventSplit[0], false, commandEventSplit[1]));
-            duke.messages.Message.printAddTask(taskList.get(size - 1), size);
+            duke.messages.Message.printAddTask(taskList.get(size), size);
             break;
         default:
             break;

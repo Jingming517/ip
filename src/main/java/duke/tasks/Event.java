@@ -8,6 +8,22 @@ public class Event extends Task {
         super(description, isDone);
         this.at = at;
     }
+
+    @Override
+    public String getTaskType() {
+        return "E";
+    }
+
+    @Override
+    public String getTaskDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getTaskTime() {
+        return at;
+    }
+
     @Override
     public String toString() {
         return "[E]" + super.toString() + " (at: " + at + ")";
