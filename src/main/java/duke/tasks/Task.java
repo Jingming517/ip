@@ -15,10 +15,22 @@ public class Task {
     public void markAsDone() {
         isDone = true;
     }
+
     public String getStatusIcon() {
         return (isDone ? "\u2713" : "\u2718");
+    }
+
+    public String getTaskType() {
+        return "Task";
+    }
+    public String getTaskDescription() {
+        return this.description;
+    }
+    public String getTaskTime() {
+        return "";
     }
     public String toString() {
         return ("[" + getStatusIcon() + "] " + description);
     }
+
 }

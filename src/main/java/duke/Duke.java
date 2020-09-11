@@ -1,27 +1,13 @@
 package duke;
-import duke.tasks.Task;
-import duke.messages.Message;
 
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+import duke.storage.Storage;
 
 public class Duke {
-    public static ArrayList<Task> taskList = new ArrayList<Task>();
-
     public static void main(String[] args) {
-        duke.messages.Message.printWelcome();
-        Scanner in = new Scanner(System.in);
-        String command;
-        while (true) {
-            command = in.nextLine();
-            if (command.equals("bye")) {
-                duke.messages.Message.printGoodBye();
-                break;
-            }
-            else {
-                duke.commands.Command.commendProcessor(taskList, command);
-            }
-        }
+        duke.tasks.TaskList list = new duke.tasks.TaskList();
+        duke.commands.Command command = new duke.commands.Command(list);
+        command.commandProcessor();
+        Storage storage = new Storage(list);
+        storage.saveData();
     }
 }

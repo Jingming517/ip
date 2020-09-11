@@ -13,8 +13,7 @@ public class DukeExceptionDetector {
 
         if (split.length == 0) {
             throw new DukeException(Message.EMPTY_COMMAND_ERROR);
-        }
-        else if (split.length == 1) {
+        } else if (split.length == 1) {
             switch (commandType) {
             case "list":
                 return split;
@@ -27,10 +26,10 @@ public class DukeExceptionDetector {
             default:
                 throw new DukeException(Message.INVALID_COMMAND_ERROR);
             }
-        }
-        else {
+        } else {
             switch (commandType) {
             case("done"):
+            case("delete"):
             case("todo"):
             case("event"):
             case("deadline"):
@@ -54,3 +53,4 @@ public class DukeExceptionDetector {
         return split;
     }
 }
+

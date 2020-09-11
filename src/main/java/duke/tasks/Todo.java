@@ -7,6 +7,21 @@ public class Todo extends Task {
     }
 
     @Override
+    public String getTaskType() {
+        return "T";
+    }
+
+    @Override
+    public String getTaskDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getTaskTime() {
+        return "";
+    }
+
+    @Override
     public String toString() {
         return "[T]" + super.toString();
     }
