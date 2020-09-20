@@ -14,6 +14,8 @@ public class Message {
     public static final String EMPTY_DEADLINE_ERROR = "☹ OOPS!!! The description of a deadline cannot be empty.";
     public static final String EMPTY_EVENT_TIME_ERROR = "☹ OOPS!!! Please input the time of event.";
     public static final String EMPTY_DEADLINE_TIME_ERROR = "☹ OOPS!!! Please input the time of deadline.";
+    public static final String FILE_NOT_FOUND = "☹ OOPS!!! The save file is not found.";
+    public static final String FILE_LOADED = "File successfully loaded.";
 
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
