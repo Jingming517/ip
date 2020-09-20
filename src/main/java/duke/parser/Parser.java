@@ -1,11 +1,12 @@
-package duke.dukeexception;
+package duke.parser;
+import duke.dukeexception.DukeException;
 import duke.messages.Message;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class DukeExceptionDetector {
+public class Parser {
 
     public static String[] extractCommandAction(String command) throws DukeException {
         String[] split = command.split(" ", 2);

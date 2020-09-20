@@ -1,7 +1,8 @@
 package duke.tasks;
 
 import duke.dukeexception.*;
-import duke.messages.*;
+import duke.parser.Parser;
+
 import java.util.ArrayList;
 
 public class TaskList {
@@ -22,12 +23,12 @@ public class TaskList {
             duke.messages.Message.printAddTask(taskList.get(size), size);
             break;
         case "deadline":
-            String commandDeadlineSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
+            String commandDeadlineSplit[] = Parser.extractTaskTime(taskDescription, type);
             taskList.add(new Deadline(commandDeadlineSplit[0], false, commandDeadlineSplit[1]));
             duke.messages.Message.printAddTask(taskList.get(size), size);
             break;
         case "event":
-            String commandEventSplit[] = DukeExceptionDetector.extractTaskTime(taskDescription, type);
+            String commandEventSplit[] = Parser.extractTaskTime(taskDescription, type);
             taskList.add(new Event(commandEventSplit[0], false, commandEventSplit[1]));
             duke.messages.Message.printAddTask(taskList.get(size), size);
             break;

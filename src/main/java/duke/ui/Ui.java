@@ -1,14 +1,14 @@
-package duke.commands;
+package duke.ui;
 
+import duke.parser.Parser;
 import duke.tasks.*;
-import duke.messages.*;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 import duke.dukeexception.*;
-public class Command {
+public class Ui {
     private TaskList list;
-    public Command(TaskList list) {
+    public Ui(TaskList list) {
         this.list = list;
     }
 
@@ -25,7 +25,7 @@ public class Command {
             }
             else {
                 try {
-                    String[] split = DukeExceptionDetector.extractCommandAction(command);
+                    String[] split = Parser.extractCommandAction(command);
                     String commandType = split[0];
                     String taskDescription;
 
