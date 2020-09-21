@@ -21,6 +21,12 @@ public class Message {
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
     }
+
+    /**
+     * Prints task being added.
+     * @param taskAdded the task being added.
+     * @param size number of tasks in the list.
+     */
     public static void printAddTask(Task taskAdded, int size) {
         printSeparationLine();
         System.out.println("\t Got it. I've added this task: ");

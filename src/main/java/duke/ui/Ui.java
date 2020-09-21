@@ -2,16 +2,21 @@ package duke.ui;
 
 import duke.parser.Parser;
 import duke.tasks.*;
-
+import duke.dukeexception.*;
 import java.util.Scanner;
 
-import duke.dukeexception.*;
+/**
+ * Encapsulates the Ui class that deals with interactions with the user.
+ */
 public class Ui {
     private TaskList list;
     public Ui(TaskList list) {
         this.list = list;
     }
 
+    /**
+     *  Processes and executes the input commands from user.
+     */
     public void commandProcessor() {
         duke.messages.Message.printWelcome();
         Scanner in = new Scanner(System.in);

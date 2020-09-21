@@ -1,13 +1,22 @@
 package duke.parser;
+
 import duke.dukeexception.DukeException;
 import duke.messages.Message;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class Parser {
+/**
+ * Encapsulates the Parser class that parses user input string.
+ */
 
+public class Parser {
+    /**
+     * Extracts command action word from user input string.
+     * @param command user input command.
+     * @return an array of string including [command type] and [description].
+     * @throws DukeException throws exception on empty commands and invalid commands.
+     */
     public static String[] extractCommandAction(String command) throws DukeException {
         String[] split = command.split(" ", 2);
         String commandType = split[0];
@@ -43,6 +52,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Extracts date from command string.
+     * @param command user input command.
+     * @param commandType Type of command.
+     * @return an array of string [description, date].
+     * @throws DukeException throws an exception on empty date.
+     */
     public static String[] extractTaskTime(String command, String commandType) throws DukeException{
         String[] split = command.split(" /by | /at ", 2);
         if (split.length == 1) {
@@ -56,6 +72,12 @@ public class Parser {
         return split;
     }
 
+    /**
+     * Converts date from String to LocalDate.
+     * @param time date string.
+     * @return date in LocalDate format.
+     * @throws DukeException throws a duke exception on invalid date format.
+     */
     public static LocalDate timeProcessor(String time) throws DukeException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {

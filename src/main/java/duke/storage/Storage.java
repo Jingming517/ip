@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+/**
+ * Encapsulates a Storage object that saves data to file and loads saved files
+ */
 public class Storage {
     private static final String FILE_PATH = "duke.txt";
 
@@ -19,6 +22,9 @@ public class Storage {
         this.taskList = list;
     }
 
+    /**
+     * Loads saved data form txt file.
+     */
     public void loadData() {
         try {
             File directory = new File(FILE_PATH);
@@ -59,6 +65,9 @@ public class Storage {
         }
     }
 
+    /**
+     * Saves data to duke.txt file.
+     */
     public void saveData() {
         try {
             FileWriter fw = new FileWriter(FILE_PATH);
@@ -77,6 +86,4 @@ public class Storage {
             e.printStackTrace();
         }
     }
-
-
 }
