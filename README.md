@@ -1,9 +1,9 @@
-#Duke User Guide
+# Duke User Guide
 
-##Introduction
+## Introduction
 Duke is a Personal Assistant Chatbot that helps you to keep track of various things. 
 
-###Setting up Duke
+### Setting up Duke
 1. Download Duke file.
 2. Go to `/ip/src/main/java`
 3. In command line key in:
@@ -20,7 +20,7 @@ Example:
 list
 ```
 
-###Todo
+### Todo
 Add a todo task to Duke  
 Format: `todo [DESCRIPTION]`  
 Example:
@@ -28,7 +28,7 @@ Example:
 todo borrow book
 ```
 
-###Deadline
+### Deadline
 Add a deadline to Duke  
 Format: `deadline [DESCRIPTION] /by [yyyy-mm-dd]`  
 Example:
@@ -44,7 +44,7 @@ Example:
 event school activity /at 2020-10-01
 ```
 
-###Done
+### Done
 Mark a task as done  
 Format: `done [index]`  
 Example:
@@ -52,7 +52,7 @@ Example:
 done 2
 ```
 
-###Delete
+### Delete
 Delete a task from duke  
 Format: `delete [index]`  
 Example:
@@ -60,7 +60,7 @@ Example:
 delete 2
 ```
 
-###Find
+### Find
 Find tasks that contains a certain keyword  
 Format: `find [keyword]`  
 Example:
@@ -68,7 +68,7 @@ Example:
 find book
 ```
 
-###Help
+### Help
 Prints available commands  
 Format: `help`  
 Example:
@@ -101,7 +101,7 @@ Outcome:
                 Example: bye
 
 ```
-###Bye
+### Bye
 Exits Duke
 Format: `bye`  
 Example:
