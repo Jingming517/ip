@@ -1,5 +1,6 @@
 package duke.storage;
 
+import duke.dukeexception.DukeException;
 import duke.tasks.*;
 import duke.storage.*;
 import java.io.File;
@@ -43,15 +44,17 @@ public class Storage {
                     taskList.getTasks().add(new Todo(parsed[2], status));
                     break;
                 case "D":
-                    taskList.getTasks().add(new Deadline(parsed[2], status, parsed[3]));
+                    LocalDate deadlineTime = duke.parser.Parser.timeProcessor(parsed[3].trim());
+                    taskList.getTasks().add(new Deadline(parsed[2], status, deadlineTime));
                     break;
                 case "E":
-                    taskList.getTasks().add(new Event(parsed[2], status, parsed[3]));
+                    LocalDate eventTime = duke.parser.Parser.timeProcessor(parsed[3].trim());
+                    taskList.getTasks().add(new Event(parsed[2], status, eventTime));
                     break;
                 }
             }
             System.out.println("\t " + duke.messages.Message.FILE_LOADED);
-        } catch (IOException e) {
+        } catch (IOException | DukeException e) {
             e.printStackTrace();
         }
     }
@@ -61,10 +64,12 @@ public class Storage {
             FileWriter fw = new FileWriter(FILE_PATH);
 
             for (Task task : taskList.getTasks()) {
+                String time = task.getTaskTime().trim();
+                String timeFormatted = time.replace(" ", "-");
                 fw.write(task.getTaskType() + " | "
                         + task.getStatusIcon() + " | "
-                        + task.getTaskDescription() + " | "
-                        + task.getTaskTime()
+                        + task.getTaskDescription().trim() + " | "
+                        + timeFormatted
                         + System.lineSeparator());
             }
             fw.close();

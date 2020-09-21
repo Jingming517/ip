@@ -1,8 +1,13 @@
 package duke.tasks;
 
-public class Task {
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
+public class Task implements Comparable<Task> {
     public String description;
     public boolean isDone;
+    private LocalDate time;
 
     public Task() {
         description = "";
@@ -26,6 +31,7 @@ public class Task {
     public String getTaskDescription() {
         return this.description;
     }
+    public LocalDate getTime() {return null;}
     public String getTaskTime() {
         return "";
     }
@@ -33,4 +39,8 @@ public class Task {
         return ("[" + getStatusIcon() + "] " + description);
     }
 
+    @Override
+    public int compareTo(Task o) {
+        return 0;
+    }
 }

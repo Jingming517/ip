@@ -45,6 +45,9 @@ public class Ui {
                     case "list":
                         list.printAllTasks();
                         break;
+                    case "timeline":
+                        list.printTimeline();
+                        break;
                     case "todo":
                         list.addTask(taskDescription, "todo");
                         break;
