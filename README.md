@@ -11,8 +11,8 @@ Duke is a Personal Assistant Chatbot that helps you to keep track of various thi
    javac duke/Duke.java
    java duke.Duke   
    ```
-##Usage 
-###List
+## Usage 
+### List
 Display all tasks in the list  
 Format: `list`  
 Example:
@@ -36,7 +36,7 @@ Example:
 deadline return  book /by 2020-10-01
 ```
 
-###Event
+### Event
 Add an event to Duke
 Format: `event [DESCRIPTION] /at [yyyy-mm-dd]`  
 Example:
