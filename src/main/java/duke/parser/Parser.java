@@ -35,6 +35,7 @@ public class Parser {
             case("todo"):
             case("event"):
             case("deadline"):
+            case("find"):
                 return split;
             default:
                 throw new DukeException(Message.INVALID_COMMAND_ERROR);

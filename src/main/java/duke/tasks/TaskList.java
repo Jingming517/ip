@@ -91,6 +91,30 @@ public class TaskList {
         }
     }
 
+    public void findKeyword(String keyword) {
+        duke.messages.Message.printSeparationLine();
+        int number = 1;
+        System.out.println("\t Here are the matching tasks in your list:");
+        for (int i=0; i<tasks.size(); i++) {
+            String description = tasks.get(i).getTaskDescription();
+            if (keywordMatched(keyword, description)) {
+                System.out.println("\t "
+                        + number
+                        + "."
+                        + tasks.get(i).toString());
+                number++;
+            }
+        }
+        duke.messages.Message.printSeparationLine();
+    }
+    public boolean keywordMatched(String keyword, String description) {
+        if (description.contains(keyword)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void printTimeline() {
         System.out.println("\t To be implemented.");
         /*

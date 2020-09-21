@@ -57,6 +57,9 @@ public class Ui {
                     case "deadline":
                         list.addTask(taskDescription, "deadline");
                         break;
+                    case "find":
+                        list.findKeyword(split[1].trim());
+                        break;
                     case "help":
                         duke.messages.Message.printCommandInstructions();
                         break;
