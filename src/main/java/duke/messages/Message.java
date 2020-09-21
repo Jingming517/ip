@@ -16,6 +16,7 @@ public class Message {
     public static final String EMPTY_DEADLINE_TIME_ERROR = "☹ OOPS!!! Please input the time of deadline.";
     public static final String FILE_NOT_FOUND = "☹ OOPS!!! The save file is not found.";
     public static final String FILE_LOADED = "File successfully loaded.";
+    public static final String DATE_FORMAT_ERROR = "☹ OOPS!!! Please input date in yyyy-mm-dd format";
 
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");
@@ -73,6 +74,8 @@ public class Message {
                 "\n\t\tExample: event project meeting /at Mon 2-4pm" +
                 "\n\n\tdone: Mark a task as done." +
                 "\n\t\tExample: done 2" +
+                "\n\n\ttimeline: Print tasks in time order"+
+                "\n\t\tExample: timeline" +
                 "\n\n\tbye: Exit the program." +
                 "\n\t\tExample: bye");
         printSeparationLine();

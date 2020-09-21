@@ -3,7 +3,9 @@ package duke.tasks;
 import duke.dukeexception.*;
 import duke.parser.Parser;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TaskList {
     private ArrayList<Task> tasks;
@@ -24,12 +26,14 @@ public class TaskList {
             break;
         case "deadline":
             String commandDeadlineSplit[] = Parser.extractTaskTime(taskDescription, type);
-            tasks.add(new Deadline(commandDeadlineSplit[0], false, commandDeadlineSplit[1]));
+            LocalDate deadlineDateProcessed = Parser.timeProcessor(commandDeadlineSplit[1].trim());
+            tasks.add(new Deadline(commandDeadlineSplit[0], false, deadlineDateProcessed));
             duke.messages.Message.printAddTask(tasks.get(size), size);
             break;
         case "event":
             String commandEventSplit[] = Parser.extractTaskTime(taskDescription, type);
-            tasks.add(new Event(commandEventSplit[0], false, commandEventSplit[1]));
+            LocalDate eventDateProcessed = Parser.timeProcessor(commandEventSplit[1].trim());
+            tasks.add(new Event(commandEventSplit[0], false, eventDateProcessed));
             duke.messages.Message.printAddTask(tasks.get(size), size);
             break;
         default:
@@ -75,5 +79,50 @@ public class TaskList {
             number++;
         }
         duke.messages.Message.printSeparationLine();
+    }
+    public void printList(ArrayList<Task> list) {
+        int number = 1;
+        for (int i=0; i< list.size(); i++) {
+            System.out.println("\t "
+                    + number
+                    + "."
+                    + tasks.get(i).toString());
+            number++;
+        }
+    }
+
+    public void printTimeline() {
+        System.out.println("\t To be implemented.");
+        /*
+        ArrayList<Task> deadlineList = new ArrayList<>();
+        ArrayList<Task> eventList = new ArrayList<>();
+        ArrayList<Task> todoList = new ArrayList<>();
+        for (int i=0; i<tasks.size(); i++) {
+            switch(tasks.get(i).getTaskType()) {
+            case "E":
+                eventList.add(tasks.get(i));
+                break;
+            case "D":
+                deadlineList.add(tasks.get(i));
+                break;
+            case "T":
+                todoList.add(tasks.get(i));
+                break;
+            }
+        }
+        //Collections.sort(deadlineList);
+        //Collections.sort(eventList);
+
+        duke.messages.Message.printSeparationLine();
+        System.out.println("\t Here is your timeline");
+        System.out.println("\t Deadlines:");
+        printList(deadlineList);
+        System.out.println("\t Events:");
+        printList(eventList);
+        System.out.println("\t Todos:");
+        printList(todoList);
+        duke.messages.Message.printSeparationLine();
+
+         */
     }
 }

@@ -17,6 +17,7 @@ public class Parser {
         } else if (split.length == 1) {
             switch (commandType) {
             case "list":
+            case "timeline":
                 return split;
             case "todo":
                 throw new DukeException(Message.EMPTY_TODO_ERROR);
@@ -52,6 +53,20 @@ public class Parser {
             }
         }
         return split;
+    }
+
+    public static LocalDate timeProcessor(String time) throws DukeException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            LocalDate ld = LocalDate.parse(time, formatter);
+            String valid = ld.format(formatter);
+            if (!valid.equals(time)) {
+                throw new DukeException(duke.messages.Message.DATE_FORMAT_ERROR);
+            }
+            return ld;
+        } catch (DateTimeParseException | DukeException exp) {
+            throw new DukeException(duke.messages.Message.DATE_FORMAT_ERROR);
+        }
     }
 }
 

@@ -1,5 +1,7 @@
 package duke.tasks;
 
+import java.time.LocalDate;
+
 public class Todo extends Task {
 
     public Todo(String description, boolean isDone) {
@@ -15,6 +17,8 @@ public class Todo extends Task {
     public String getTaskDescription() {
         return this.description;
     }
+
+    public LocalDate getTime() {return null;}
 
     @Override
     public String getTaskTime() {
