@@ -27,8 +27,9 @@ public class Ui {
             if (command.equals("bye")) {
                 duke.messages.Message.printGoodBye();
                 break;
-            }
-            else {
+            } else if (command.equals("help")){
+                duke.messages.Message.printCommandInstructions();
+            } else {
                 try {
                     String[] split = Parser.extractCommandAction(command);
                     String commandType = split[0];
@@ -64,9 +65,6 @@ public class Ui {
                         break;
                     case "find":
                         list.findKeyword(split[1].trim());
-                        break;
-                    case "help":
-                        duke.messages.Message.printCommandInstructions();
                         break;
                     default:
                         duke.messages.Message.printSeparationLine();

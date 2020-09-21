@@ -1,26 +1,110 @@
-# Duke project template
+#Duke User Guide
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+##Introduction
+Duke is a Personal Assistant Chatbot that helps you to keep track of various things. 
 
-## Setting up in Intellij
-
-Prerequisites: JDK 11, update Intellij to the most recent version.
-
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first)
-1. Set up the correct JDK version, as follows:
-   1. Click `Configure` > `Structure for New Projects` and then `Project Settings` > `Project` > `Project SDK`
-   1. If JDK 11 is listed in the drop down, select it. If it is not, click `New...` and select the directory where you installed JDK 11
-   1. Click `OK`
-1. Import the project into Intellij as follows:
-   1. Click `Open or Import`.
-   1. Select the project directory, and click `OK`
-   1. If there are any further prompts, accept the defaults.
-1. After the importing is complete, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()`. If the setup is correct, you should see something like the below:
+###Setting up Duke
+1. Download Duke file.
+2. Go to `/ip/src/main/java`
+3. In command line key in:
+    ```
+   javac duke/Duke.java
+   java duke.Duke   
    ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+##Usage 
+###List
+Display all tasks in the list  
+Format: `list`  
+Example:
+```$xslt
+list
+```
+
+###Todo
+Add a todo task to Duke  
+Format: `todo [DESCRIPTION]`  
+Example:
+```$xslt
+todo borrow book
+```
+
+###Deadline
+Add a deadline to Duke  
+Format: `deadline [DESCRIPTION] /by [yyyy-mm-dd]`  
+Example:
+```$xslt
+deadline return  book /by 2020-10-01
+```
+
+###Event
+Add an event to Duke
+Format: `event [DESCRIPTION] /at [yyyy-mm-dd]`  
+Example:
+```$xslt
+event school activity /at 2020-10-01
+```
+
+###Done
+Mark a task as done  
+Format: `done [index]`  
+Example:
+```$xslt
+done 2
+```
+
+###Delete
+Delete a task from duke  
+Format: `delete [index]`  
+Example:
+```$xslt
+delete 2
+```
+
+###Find
+Find tasks that contains a certain keyword  
+Format: `find [keyword]`  
+Example:
+```$xslt
+find book
+```
+
+###Help
+Prints available commands  
+Format: `help`  
+Example:
+```$xslt
+help
+```
+Outcome:
+```
+        [List of commands available]
+
+        list: Display all tasks in the list.
+                Example: list
+
+        todo: Add a todo task.
+                Example: todo borrow book
+
+        deadline: Add a deadline.
+                Example: deadline return book /by Sunday
+
+        event: Add a event.
+                Example: event project meeting /at Mon 2-4pm
+
+        done: Mark a task as done.
+                Example: done 2
+
+        timeline: Print tasks in time order
+                Example: timeline
+
+        bye: Exit the program.
+                Example: bye
+
+```
+###Bye
+Exits Duke
+Format: `bye`  
+Example:
+```$xslt
+bye
+```
