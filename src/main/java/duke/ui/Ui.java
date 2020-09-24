@@ -66,6 +66,9 @@ public class Ui {
                     case "find":
                         list.findKeyword(split[1].trim());
                         break;
+                    case "date":
+                        list.findDate(split[1]);
+                        break;
                     default:
                         duke.messages.Message.printSeparationLine();
                         System.out.println("\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(");

@@ -158,20 +158,39 @@ public class TaskList {
         }
     }
 
+    public void findDate(String dateInput) throws DukeException {
+        duke.messages.Message.printSeparationLine();
+        System.out.println("\t Here are the tasks on date " + dateInput.trim() + " :");
+        int number = 1;
+        for (int i=0; i<tasks.size(); i++) {
+            System.out.println(tasks.get(i).getTaskTime().trim());
+            System.out.println(dateInput.trim());
+            if (tasks.get(i).getTaskTime().trim().matches(dateInput.trim())) {
+                System.out.println("\t "
+                        + number
+                        + "."
+                        + tasks.get(i).toString());
+                number++;
+            }
+        }
+        duke.messages.Message.printSeparationLine();
+    }
+
     public void sortTasks() {
         ArrayList<Task> deadlineList = new ArrayList<>();
         ArrayList<Task> eventList = new ArrayList<>();
         ArrayList<Task> todoList = new ArrayList<>();
         for (int i=0; i<tasks.size(); i++) {
+            Task temp = tasks.get(i);
             switch(tasks.get(i).getTaskType()) {
             case "E":
-                eventList.add(tasks.get(i));
+                eventList.add(temp);
                 break;
             case "D":
-                deadlineList.add(tasks.get(i));
+                deadlineList.add(temp);
                 break;
             case "T":
-                todoList.add(tasks.get(i));
+                todoList.add(temp);
                 break;
             }
         }

@@ -22,7 +22,6 @@ public class Parser {
     public static String[] extractCommandAction(String command) throws DukeException {
         String[] split = command.split(" ", 2);
         String commandType = split[0];
-        System.out.println(split.length);
         if (split.length == 0) {
             throw new DukeException(Message.EMPTY_COMMAND_ERROR);
         } else if (split.length == 1) {
@@ -48,6 +47,7 @@ public class Parser {
             case("event"):
             case("deadline"):
             case("find"):
+            case("date"):
                 return split;
             default:
                 throw new DukeException(Message.INVALID_COMMAND_ERROR);

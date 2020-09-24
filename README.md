@@ -69,7 +69,7 @@ find book
 ```
 
 ### Sort
-Sort tasks according to their types
+Sort tasks according to their types  
 Format: `sort`  
 Example:
 ```$xslt
