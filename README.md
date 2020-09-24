@@ -68,6 +68,14 @@ Example:
 find book
 ```
 
+###Sort
+Sort tasks according to their types
+Format: `sort`  
+Example:
+```$xslt
+sort
+```
+
 ###Help
 Prints available commands  
 Format: `help`  

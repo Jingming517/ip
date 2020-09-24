@@ -51,8 +51,8 @@ public class Ui {
                     case "list":
                         list.printAllTasks();
                         break;
-                    case "timeline":
-                        list.printTimeline();
+                    case "sort":
+                        list.sortTasks();
                         break;
                     case "todo":
                         list.addTask(taskDescription, "todo");

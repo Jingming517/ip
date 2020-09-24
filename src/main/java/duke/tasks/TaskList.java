@@ -158,9 +158,7 @@ public class TaskList {
         }
     }
 
-    public void printTimeline() {
-        System.out.println("\t To be implemented.");
-        /*
+    public void sortTasks() {
         ArrayList<Task> deadlineList = new ArrayList<>();
         ArrayList<Task> eventList = new ArrayList<>();
         ArrayList<Task> todoList = new ArrayList<>();
@@ -177,11 +175,8 @@ public class TaskList {
                 break;
             }
         }
-        //Collections.sort(deadlineList);
-        //Collections.sort(eventList);
-
         duke.messages.Message.printSeparationLine();
-        System.out.println("\t Here is your timeline");
+        System.out.println("\t Here are your tasks:");
         System.out.println("\t Deadlines:");
         printList(deadlineList);
         System.out.println("\t Events:");
@@ -189,7 +184,25 @@ public class TaskList {
         System.out.println("\t Todos:");
         printList(todoList);
         duke.messages.Message.printSeparationLine();
-
-         */
     }
+    /*
+    public ArrayList<Task> sortByDate(ArrayList<Task> taskList) throws DukeException {
+        ArrayList<Task> sortingList = taskList;
+        ArrayList<Task> sortedList;
+        String timeBasis = "1970-01-01";
+        Task nearestTask;
+        LocalDate compareBasis = Parser.timeProcessor(timeBasis);
+        for (int i=0; i<taskList.size(); i++) {
+            for (int j=i; j<taskList.size(); j++) {
+                if (taskList.get(j).getDateTime().isBefore(taskList.get(j).getDateTime())) {
+
+                }
+            }
+        }
+
+
+        return sortedList;
+    }
+
+     */
 }

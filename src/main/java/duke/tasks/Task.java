@@ -7,7 +7,7 @@ import java.time.ZoneId;
 /**
  * Encapsulates a Task object.
  */
-public class Task implements Comparable<Task> {
+public class Task {
     public String description;
     public boolean isDone;
     private LocalDate time;
@@ -25,6 +25,7 @@ public class Task implements Comparable<Task> {
     public Task(String taskInput, boolean status){
         description = taskInput;
         isDone = status;
+        time = null;
     }
 
     /**
@@ -64,16 +65,15 @@ public class Task implements Comparable<Task> {
         return "";
     }
 
+    public LocalDate getDateTime() {
+        return time;
+    }
+
     /**
      * Converts task type, status, description and date to a string.
      * @return a string of task information.
      */
     public String toString() {
         return ("[" + getStatusIcon() + "] " + description);
-    }
-
-    @Override
-    public int compareTo(Task o) {
-        return 0;
     }
 }

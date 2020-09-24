@@ -47,6 +47,10 @@ public class Message {
         printSeparationLine();
     }
 
+
+    /**
+     * Prints welcome messages.
+     */
     public static void printWelcome() {
         /*
         String logo = " ____        _        \n"
@@ -61,12 +65,20 @@ public class Message {
         System.out.println("\t What can I do for you?");
         printSeparationLine();
     }
+
+    /**
+     * Prints goodbye messages.
+     */
     public static void printGoodBye() {
         printSeparationLine();
         System.out.println("\t Bye.Hope to see you again soon!");
         printSeparationLine();
         return;
     }
+
+    /**
+     * Prints available commands.
+     */
     public static void printCommandInstructions() {
         printSeparationLine();
         System.out.println("\t[List of commands available]" +
@@ -82,6 +94,8 @@ public class Message {
                 "\n\t\tExample: done 2" +
                 "\n\n\ttimeline: Print tasks in time order"+
                 "\n\t\tExample: timeline" +
+                "\n\n\tsort: Sort tasks according to their types"+
+                "\n\t\tExample: sort" +
                 "\n\n\tbye: Exit the program." +
                 "\n\t\tExample: bye");
         printSeparationLine();

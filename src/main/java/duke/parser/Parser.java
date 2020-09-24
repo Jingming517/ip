@@ -2,6 +2,8 @@ package duke.parser;
 
 import duke.dukeexception.DukeException;
 import duke.messages.Message;
+import duke.tasks.TaskList;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -27,6 +29,7 @@ public class Parser {
             switch (commandType) {
             case "list":
             case "timeline":
+            case "sort":
                 return split;
             case "todo":
                 throw new DukeException(Message.EMPTY_TODO_ERROR);
