@@ -118,7 +118,7 @@ public class TaskList {
             System.out.println("\t "
                     + number
                     + "."
-                    + tasks.get(i).toString());
+                    +list.get(i).toString());
             number++;
         }
     }
