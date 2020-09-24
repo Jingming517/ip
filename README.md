@@ -37,7 +37,7 @@ deadline return  book /by 2020-10-01
 ```
 
 ### Event
-Add an event to Duke
+Add an event to Duke  
 Format: `event [DESCRIPTION] /at [yyyy-mm-dd]`  
 Example:
 ```$xslt
