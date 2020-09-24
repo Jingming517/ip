@@ -68,6 +68,14 @@ Example:
 find book
 ```
 
+### Date
+Find tasks on a certain date  
+Format: `date [yyy-mm-dd]`  
+Example:
+```$xslt
+date 2020-09-23
+```
+
 ### Sort
 Sort tasks according to their types  
 Format: `sort`  

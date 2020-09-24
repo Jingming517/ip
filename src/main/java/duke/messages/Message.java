@@ -92,6 +92,10 @@ public class Message {
                 "\n\t\tExample: event project meeting /at Mon 2-4pm" +
                 "\n\n\tdone: Mark a task as done." +
                 "\n\t\tExample: done 2" +
+                "\n\n\tfind: Find tasks that contain the keyword"+
+                "\n\t\tExample: find book" +
+                "\n\n\tdate: Find tasks on a certain date"+
+                "\n\t\tExample: date 2020-09-23" +
                 "\n\n\ttimeline: Print tasks in time order"+
                 "\n\t\tExample: timeline" +
                 "\n\n\tsort: Sort tasks according to their types"+

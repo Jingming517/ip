@@ -160,6 +160,7 @@ public class TaskList {
 
     public void findDate(String dateInput) throws DukeException {
         duke.messages.Message.printSeparationLine();
+        LocalDate testInputFormat = Parser.timeProcessor(dateInput.trim());
         System.out.println("\t Here are the tasks on date " + dateInput.trim() + " :");
         int number = 1;
         for (int i=0; i<tasks.size(); i++) {
