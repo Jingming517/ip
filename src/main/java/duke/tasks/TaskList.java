@@ -169,8 +169,6 @@ public class TaskList {
         System.out.println("\t Here are the tasks on date " + dateInput.trim() + " :");
         int number = 1;
         for (int i=0; i<tasks.size(); i++) {
-            System.out.println(tasks.get(i).getTaskTime().trim());
-            System.out.println(dateInput.trim());
             if (tasks.get(i).getTaskTime().trim().matches(dateInput.trim())) {
                 System.out.println("\t "
                         + number
