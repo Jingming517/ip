@@ -10,7 +10,7 @@ import java.time.ZoneId;
 public class Task {
     public String description;
     public boolean isDone;
-    private LocalDate time;
+    public LocalDate time;
 
     public Task() {
         description = "";
@@ -76,4 +76,5 @@ public class Task {
     public String toString() {
         return ("[" + getStatusIcon() + "] " + description);
     }
+
 }

@@ -69,6 +69,9 @@ public class Ui {
                     case "date":
                         list.findDate(split[1]);
                         break;
+                    case "timeline":
+                        list.generateTimeline();
+                        break;
                     default:
                         duke.messages.Message.printSeparationLine();
                         System.out.println("\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(");

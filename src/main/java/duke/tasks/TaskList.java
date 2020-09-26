@@ -158,6 +158,11 @@ public class TaskList {
         }
     }
 
+    /**
+     * Find tasks on a certain date.
+     * @param dateInput the date to be found.
+     * @throws DukeException throws error of invalid date formate
+     */
     public void findDate(String dateInput) throws DukeException {
         duke.messages.Message.printSeparationLine();
         LocalDate testInputFormat = Parser.timeProcessor(dateInput.trim());
@@ -177,6 +182,9 @@ public class TaskList {
         duke.messages.Message.printSeparationLine();
     }
 
+    /**
+     * Sort tasks according to their type into deadlines, events, and todos.
+     */
     public void sortTasks() {
         ArrayList<Task> deadlineList = new ArrayList<>();
         ArrayList<Task> eventList = new ArrayList<>();
@@ -205,24 +213,54 @@ public class TaskList {
         printList(todoList);
         duke.messages.Message.printSeparationLine();
     }
-    /*
+
+    /**
+     * Sort deadlines and events in time sequence
+     * @param taskList the list to be sorted.
+     * @return the sorted list in time sequence.
+     * @throws DukeException
+     */
     public ArrayList<Task> sortByDate(ArrayList<Task> taskList) throws DukeException {
         ArrayList<Task> sortingList = taskList;
-        ArrayList<Task> sortedList;
-        String timeBasis = "1970-01-01";
-        Task nearestTask;
-        LocalDate compareBasis = Parser.timeProcessor(timeBasis);
-        for (int i=0; i<taskList.size(); i++) {
-            for (int j=i; j<taskList.size(); j++) {
-                if (taskList.get(j).getDateTime().isBefore(taskList.get(j).getDateTime())) {
 
+        for (int i=0; i<taskList.size(); i++) {
+            for (int j=i+1; j<taskList.size(); j++) {
+                if (taskList.get(i).getTime() != null && taskList.get(j).getTime() != null) {
+                    if (taskList.get(j).getTime().isBefore(taskList.get(i).getTime())) {
+                        Collections.swap(sortingList, i, j);
+                    }
                 }
             }
         }
-
-
-        return sortedList;
+        return sortingList;
     }
 
+    /**
+     * Generates a timeline for deadlines and events
+     * @throws DukeException
      */
+    public void generateTimeline() throws DukeException {
+        ArrayList<Task> timelineList = new ArrayList<>();
+        ArrayList<Task> todoList = new ArrayList<>();
+
+        for (int i=0; i<tasks.size(); i++) {
+            Task temp = tasks.get(i);
+            switch(tasks.get(i).getTaskType()) {
+            case "E":
+            case "D":
+                timelineList.add(temp);
+                break;
+            case "T":
+                todoList.add(temp);
+                break;
+            }
+        }
+        ArrayList<Task> sortedList = sortByDate(timelineList);
+        duke.messages.Message.printSeparationLine();
+        System.out.println("\t Here is your timeline:");
+        printList(sortedList);
+        System.out.println("\t Here are your todos:");
+        printList(todoList);
+        duke.messages.Message.printSeparationLine();
+    }
 }

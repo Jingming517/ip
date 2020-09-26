@@ -83,6 +83,46 @@ Example:
 ```$xslt
 sort
 ```
+Sample Outcome:  
+```$xslt
+        ____________________________________________________________
+         Here are your tasks:
+         Deadlines:
+         1.[D][✘]  b  (by: Mar 2 2002)
+         2.[D][✘]  c  (by: Mar 4 2011)
+         3.[D][✘]  d  (by: Nov 11 2009)
+         4.[D][✘]  read book  (by: Jan 11 2020)
+         Events:
+         1.[E][✘]  a  (at: Feb 2 2000)
+         2.[E][✘]  e  (at: Feb 28 1980)
+         Todos:
+         1.[T][✘]  borrow book 
+        ____________________________________________________________
+
+```
+
+### Timeline
+Generates a timeline for deadlines and events  
+Format: `timeline`  
+Example:
+```$xslt
+timeline
+```
+Sample Outcome:  
+```$xslt
+        ____________________________________________________________
+         Here is your timeline:
+         1.[E][✘]  e  (at: Feb 28 1980)
+         2.[E][✘]  a  (at: Feb 2 2000)
+         3.[D][✘]  b  (by: Mar 2 2002)
+         4.[D][✘]  d  (by: Nov 11 2009)
+         5.[D][✘]  c  (by: Mar 4 2011)
+         6.[D][✘]  read book  (by: Jan 11 2020)
+         Here are your todos:
+         1.[T][✘]  borrow book 
+        ____________________________________________________________
+
+```
 
 ### Help
 Prints available commands  
@@ -91,10 +131,10 @@ Example:
 ```$xslt
 help
 ```
-Outcome:
-```
+Sample Outcome:
+```$xslt
+        ____________________________________________________________
         [List of commands available]
-
         list: Display all tasks in the list.
                 Example: list
 
@@ -110,11 +150,21 @@ Outcome:
         done: Mark a task as done.
                 Example: done 2
 
+        find: Find tasks that contain the keyword
+                Example: find book
+
+        date: Find tasks on a certain date
+                Example: date 2020-09-23
+
         timeline: Print tasks in time order
                 Example: timeline
 
+        sort: Sort tasks according to their types
+                Example: sort
+
         bye: Exit the program.
                 Example: bye
+        ____________________________________________________________
 
 ```
 ### Bye
