@@ -15,8 +15,10 @@ public class Message {
     public static final String EMPTY_EVENT_TIME_ERROR = "☹ OOPS!!! Please input the time of event.";
     public static final String EMPTY_DEADLINE_TIME_ERROR = "☹ OOPS!!! Please input the time of deadline.";
     public static final String FILE_NOT_FOUND = "☹ OOPS!!! The save file is not found.";
+    public static final String DIRECTORY_NOT_FOUND = "☹ OOPS!!! The directory is not found.";
     public static final String FILE_LOADED = "File successfully loaded.";
     public static final String DATE_FORMAT_ERROR = "☹ OOPS!!! Please input date in yyyy-mm-dd format";
+    public static final String FILE_LOADING = "The file is loading";
 
     public static void printSeparationLine() {
         System.out.println("\t____________________________________________________________");

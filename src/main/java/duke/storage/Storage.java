@@ -2,19 +2,19 @@ package duke.storage;
 
 import duke.dukeexception.DukeException;
 import duke.tasks.*;
-import duke.storage.*;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
  * Encapsulates a Storage object that saves data to file and loads saved files
  */
 public class Storage {
-    private static final String FILE_PATH = "duke.txt";
+    private static final String DIRECTORY_PATH = "duke";
+    private static final String FILE_PATH = "duke/duke.txt";
 
     private duke.tasks.TaskList taskList;
 
@@ -24,16 +24,21 @@ public class Storage {
 
     /**
      * Loads saved data form txt file.
+     * @return
      */
     public void loadData() {
+        String loadingMessage = "";
         try {
-            File directory = new File(FILE_PATH);
+            File directory = new File(DIRECTORY_PATH);
+
             if (!directory.exists()) {
-                System.out.println(duke.messages.Message.FILE_NOT_FOUND);
                 directory.mkdir();
             }
-            File dukeFile = new File(FILE_PATH);
-            Scanner in = new Scanner(dukeFile);
+            assert directory.exists() : "/t The directory does not exist.";
+
+            File f = new File(FILE_PATH);
+
+            Scanner in = new Scanner(f);
             while (in.hasNextLine()) {
                 String line = in.nextLine();
                 String[] parsed = line.split("\\|");
