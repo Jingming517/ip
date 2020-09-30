@@ -27,7 +27,6 @@ public class Storage {
      * @return
      */
     public void loadData() {
-        String loadingMessage = "";
         try {
             File directory = new File(DIRECTORY_PATH);
 
@@ -37,6 +36,9 @@ public class Storage {
             assert directory.exists() : "/t The directory does not exist.";
 
             File f = new File(FILE_PATH);
+            if (!f.getParentFile().exists()) {
+                f.getParentFile().mkdirs();
+            }
 
             Scanner in = new Scanner(f);
             while (in.hasNextLine()) {
